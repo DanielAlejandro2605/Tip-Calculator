@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <title>Frontend Mentor | Tip calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+    <header>
+      <h1>SPLITTER</h1>
+    </header>
+    <div id="tip_calculor_container">
+      <div id="data_container">
+            <label for="bill_total">BILL</label>
+            <input name="bill_total" type="text" maxlength="512" id="bill_total" class="searchField"/>
+    
+
+            <label for="percentage">PERCENTAGE</label>
+            <div id="test">
+                <button>5%</button>
+                <button>10%</button>
+                <button>15%</button>
+                <button>25%</button>
+                <button>50%</button>
+            </div>
+
+            <label>Number of people</label>
+            <input name="number_of_people"  type="text" id="number_of_people" class="input_field">
+        </div>
+      <div id="result_container">
+        <button id="action_button">Enter</button>
+      </div>
+    </div>
+    <script>
+    let arrayData = [];
+    let action_button = document.getElementById("action_button");
+    let test = document.getElementById('test');
+    let button_selected;
+
+    test.onclick = function(event){
+        let button = event.target.closest('button');
+        if(!button) return;
+        if(!test.contains(button)) return;
+        let percentage =  addClassSelected(button);
+    }
+    function addClassSelected(button){
+        if(button_selected){
+            button_selected.classList.remove('selected');
+        }
+        button_selected = button;
+        button_selected.classList.add('selected');
+        arrayData[0] = button_selected.innerHTML;
+    }
+    
+    action_button.onclick = function(){
+        let bill_total = Number(document.getElementById("bill_total").value); 
+        let number_of_people = document.getElementById("number_of_people").value;
+        bill_total = Number(bill_total);
+        number_of_people = Number(number_of_people);
+        let percentage = arrayData[0].match(/\d+/g);
+        alert(percentage);
+        alert(bill_total);
+        alert(number_of_people)
+
+    };
+    
+
+
+   
+    </script>
+  Bill
+
+  Select Tip %
+  5%
+  10%
+  15%
+  25%
+  50%
+  Custom
+
+  Number of People
+
+  Tip Amount
+  / person
+
+  Total
+  / person
+
+  Reset
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div>
+</body>
+</html>
