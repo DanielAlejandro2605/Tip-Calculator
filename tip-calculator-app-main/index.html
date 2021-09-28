@@ -25,7 +25,7 @@
     
 
             <label for="percentage">PERCENTAGE</label>
-            <div id="test">
+            <div id="percentage_options">
                 <button>5%</button>
                 <button>10%</button>
                 <button>15%</button>
@@ -42,52 +42,7 @@
         <button id="action_button">Enter</button>
       </div>
     </div>
-    <script>
-    let aux;
-    let action_button = document.getElementById("action_button");
-    let test = document.getElementById('test');
-    let button_selected;
-
-    test.onclick = function(event){
-        let button = event.target.closest('button');
-        if(!button) return;
-        if(!test.contains(button)) return;
-        let percentage =  addClassSelected(button);
-    }
-    function addClassSelected(button){
-        if(button_selected){
-            button_selected.classList.remove('selected');
-        }
-        button_selected = button;
-        button_selected.classList.add('selected');
-        aux = button_selected.innerHTML;
-    }
-    
-    action_button.onclick = function(){
-        let bill_total = Number(document.getElementById("bill_total").value); 
-        let number_of_people = document.getElementById("number_of_people").value;
-        bill_total = Number(bill_total);
-        number_of_people = Number(number_of_people);
-        let percentage = aux.match(/\d+/g);
-        // alert("Percentage " + percentage);
-        // alert("Bill total " + bill_total);
-        // alert("Number of people "  + number_of_people)
-        let tip_amount = (bill_total * percentage) / 100 * 2 * 0.1;
-        let div_tip_amount = document.getElementById('tip_amount');
-        div_tip_amount.innerHTML = myRound(tip_amount, 2);
-
-        let total_per_person = (bill_total / number_of_people + tip_amount).toFixed(2);
-        let div_total_per_person = document.getElementById('total_person');
-        div_total_per_person.innerHTML = total_per_person;
-    };
-    
-
-
-    function myRound(num, dec) {
-      let exp = Math.pow(10, dec || 2); // 2 decimales por defecto
-      return parseInt(num * exp, 10) / exp;
-    }
-    </script>
+    <script src="./script/script.js" type="text/javascript"></script>
   Bill
 
   Select Tip %
