@@ -1,6 +1,20 @@
-#test{
-    width: 30px;
-    width: 30px;
+#tip_calculator_container{
+    width: 400px;
+    height: 400px;
+    background-color: blueviolet;
+    display: flex;
+    flex-wrap: wrap;
+}
+#data_container{
+    width: 100%;
+    background-color: coral;
+}
+#bill_total_container{
+    display: flex;
+    flex-wrap: wrap;
+}
+#bill_total_container label{
+    width: 100%;
 }
 .selected{
     background-color: blue;
