@@ -37,11 +37,13 @@
             <input name="number_of_people"  type="text" id="number_of_people" class="input_field">
         </div>
       <div id="result_container">
+        <div id="tip_amount"></div>
+        <div id="total_person"></div>
         <button id="action_button">Enter</button>
       </div>
     </div>
     <script>
-    let arrayData = [];
+    let aux;
     let action_button = document.getElementById("action_button");
     let test = document.getElementById('test');
     let button_selected;
@@ -58,7 +60,7 @@
         }
         button_selected = button;
         button_selected.classList.add('selected');
-        arrayData[0] = button_selected.innerHTML;
+        aux = button_selected.innerHTML;
     }
     
     action_button.onclick = function(){
@@ -66,16 +68,25 @@
         let number_of_people = document.getElementById("number_of_people").value;
         bill_total = Number(bill_total);
         number_of_people = Number(number_of_people);
-        let percentage = arrayData[0].match(/\d+/g);
-        alert(percentage);
-        alert(bill_total);
-        alert(number_of_people)
+        let percentage = aux.match(/\d+/g);
+        // alert("Percentage " + percentage);
+        // alert("Bill total " + bill_total);
+        // alert("Number of people "  + number_of_people)
+        let tip_amount = (bill_total * percentage) / 100 * 2 * 0.1;
+        let div_tip_amount = document.getElementById('tip_amount');
+        div_tip_amount.innerHTML = myRound(tip_amount, 2);
 
+        let total_per_person = (bill_total / number_of_people + tip_amount).toFixed(2);
+        let div_total_per_person = document.getElementById('total_person');
+        div_total_per_person.innerHTML = total_per_person;
     };
     
 
 
-   
+    function myRound(num, dec) {
+      let exp = Math.pow(10, dec || 2); // 2 decimales por defecto
+      return parseInt(num * exp, 10) / exp;
+    }
     </script>
   Bill
 
