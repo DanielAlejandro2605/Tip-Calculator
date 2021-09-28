@@ -4,13 +4,14 @@
 let aux;
 let button_selected;
 let percentage_options = document.getElementById('percentage_options');
-
+// Select a button 
 percentage_options.onclick = function(event){
     let button = event.target.closest('button');
     if(!button) return;
     if(!percentage_options.contains(button)) return;
     addClassSelected(button);
 }
+// Add class to the button
 function addClassSelected(button){
     if(button_selected){
         button_selected.classList.remove('selected');
@@ -40,7 +41,14 @@ action_button.onclick = function(){
 function resetValues(){
     document.getElementById("bill_total").value = "";
     document.getElementById("number_of_people").value = "";
+    document.getElementById('custom_percentage').value = "";
     button_selected.classList.remove('selected');
+    let div_tip_amount = document.getElementById('tip_amount');
+    let div_total_per_person = document.getElementById('total_person');
+    div_tip_amount.innerHTML = "$0.00";
+    div_total_per_person.innerHTML = "$0.00";
+
+    document.querySelectorAll('.message').forEach(e => e.remove());
 }
 // Function to perform the operation
 function tipCalculator(){
@@ -48,34 +56,39 @@ function tipCalculator(){
     let bill_total = arrayData[0];
     let number_of_people = arrayData[1];
     let percentage = arrayData[2];
+    if(bill_total != undefined && number_of_people != undefined && percentage != undefined){
+         // Compute tip amount
+        let tip_amount = (bill_total * percentage) / 100 * 2 * 0.1;
+        let div_tip_amount = document.getElementById('tip_amount');
+        // Compute the total per person
+        let total_per_person = (bill_total / number_of_people + tip_amount).toFixed(2);
+        let div_total_per_person = document.getElementById('total_person');
 
-    // Compute tip amount
-    let tip_amount = (bill_total * percentage) / 100 * 2 * 0.1;
-    let div_tip_amount = document.getElementById('tip_amount');
-    // Compute the total per person
-    let total_per_person = (bill_total / number_of_people + tip_amount).toFixed(2);
-    let div_total_per_person = document.getElementById('total_person');
-    // Putting the values into the page
-    div_tip_amount.innerHTML = myRound(tip_amount, 2);
-    div_total_per_person.innerHTML = total_per_person;
+        // Putting the data
+        div_tip_amount.innerHTML = myRound(tip_amount, 2);
+        div_total_per_person.innerHTML = total_per_person;
+    } else{
+        alert('Ya veremos que hacer');
+    }
+   
 }
+
 // Getting the values ready for operation
 function gettingValuesReady(){
     let bill_total = document.getElementById("bill_total"); 
     let number_of_people = document.getElementById("number_of_people");
     
-    // let promise = new Promise((resolve, reject) => {
-
-    // })
     bill_total = verifyBillTotalField(bill_total);
     number_of_people = verifyNumberOfPeopleField(number_of_people);
-    let percentage = aux.match(/\d+/g);
+    let percentage = verifyPercentageField();
 
     return [bill_total, number_of_people, percentage];
 }
 // Function to verify the value of bill total field
+
 function verifyBillTotalField(bill_total){
     // Verify if there is not value.
+    
     if(bill_total.value == ""){
         createMessage(bill_total, "Missing bill total value");
         return;
@@ -103,6 +116,23 @@ function verifyNumberOfPeopleField(number_of_people){
     return Number(number_of_people.value);
 }
 
+function verifyPercentageField(){
+    let percentage;
+    let custome_percentage = document.getElementById('custom_percentage');
+    if(custome_percentage.value == "" && aux != undefined){
+        percentage = aux.match(/\d+/g);
+    } else if(custome_percentage.value != "" && aux == undefined){
+        percentage = custome_percentage.value.match(/\d+/g);
+    } else if(custome_percentage.value != "" && aux != undefined){
+        createMessage(custome_percentage, "Select one button or custom percentage, not both");
+        return;
+    } else{
+        createMessage(custome_percentage, "Missing percentage of tip");
+        return;
+    }
+
+    return Number(percentage);
+}
 // Function to create message alerts
 function createMessage(elem, html) {
     // create message element
