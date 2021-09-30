@@ -3,21 +3,25 @@ let document_innerHTML = document.body.innerHTML;
 function resetAutomatic(){
     document.body.innerHTML = document_innerHTML;    
 }
-function verifyValues(){
+function mainFunction(){
     let array = getValues();
     let bill_total = array[0];
     let percentage = array[1];
     let number_of_people = array[2];
     
-    if(verifyBillTotalField(bill_total, percentage, number_of_people)){
+    if(verifyValues(bill_total, percentage, number_of_people)){
         bill_total = Number(bill_total);
         percentage = Number(percentage);
         number_of_people = Number(number_of_people);
         tipCalculator(bill_total, percentage, number_of_people);
+
+        setTimeout(() => {
+            resetAutomatic();
+        }, 3500);
     } else{
         setTimeout(() => {
             resetAutomatic();
-        }, 5000);
+        }, 4000);
     }
 }
 function putValues(tip_amount, total_per_person){
@@ -31,7 +35,7 @@ function tipCalculator(bill_total, percentage, number_of_people){
     let total_per_person = (bill_total / number_of_people + tip_amount).toFixed(2);
     putValues(tip_amount, total_per_person);
 }
-function verifyBillTotalField(bill_total, percentage, number_of_people){
+function verifyValues(bill_total, percentage, number_of_people){
     let container_bill_total = document.getElementById('bill_total_container');
     let container_percentage = document.getElementById('percentage_container');
     let container_people = document.getElementById('people_container');

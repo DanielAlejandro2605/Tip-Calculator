@@ -1,3 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap');
+:root{
+  --background: hsl(172, 34%, 80%);
+  --title-color: hsl(183, 100%, 15%);
+  --container-background: hsl(0, 0%, 100%);
+}
+html{
+  max-width: 100%;
+  max-height: 100%;
+}
+body{
+  margin: 0;
+  font-family: 'Space Mono', monospace;
+  background-color: var(--background);
+}
+header{
+  width: 100%;
+  height: 6rem;
+  margin-top: 2rem;
+  color:  var(--title-color);
+  font-size: 12px;
+  text-align: center;
+  background-color: inherit;
+}
+#main_container{
+  width: 60%;
+  height: 60%;
+  margin: 0% 20% 0% 20%;
+  background-color: var(--container-background);
+  display: flex;
+}
+#data_container{
+  width: 50%;
+  padding: 5%;
+  /* background-color: darkred; */
+}
+#bill_total_container{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+#bill_total_container p{
+  width: 80%;
+}
+#bill_total_container input{
+  width: 100%;
+  height: 1.5rem;
+  border-radius: 5px;
+  border: 0px;
+  background-color: hsl(189,6%,91%);
+  font-family: 'Space Mono', monospace;
+}
+
+#result_container{
+  width: 50%;
+}
 input[type='radio'][name='buttonGroup'] { 
     display:none; 
 }
@@ -7,7 +63,7 @@ label {
   border:1px solid #e0e0e0;
   border-radius:3px;
   background-color:#F0F0F0;
-  width: 10em;
+  width: 90%;
   text-align:center;
 }
 
@@ -16,19 +72,7 @@ label {
 input[type='radio'][name='buttonGroup']:checked + label { 
     background-color: blue; 
 }
-#bill_total_container{
-  display: flex;
-  flex-wrap: wrap;
-  width: 10rem;
-  height: 10rem;
-  background-color: coral;
-}
-#bill_total_container p{
-  width: 80%;
-}
-#bill_total_container input{
-  width: 100%;
-}
+
 span{
   position: relative;
   font-size: 14px;
