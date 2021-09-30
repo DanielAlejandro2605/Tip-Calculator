@@ -1,21 +1,40 @@
-#tip_calculator_container{
-    width: 400px;
-    height: 400px;
-    background-color: blueviolet;
-    display: flex;
-    flex-wrap: wrap;
+input[type='radio'][name='buttonGroup'] { 
+    display:none; 
 }
-#data_container{
-    width: 100%;
-    background-color: coral;
+label {
+  display:inline-block;
+  padding:3px;
+  border:1px solid #e0e0e0;
+  border-radius:3px;
+  background-color:#F0F0F0;
+  width: 10em;
+  text-align:center;
+}
+
+/* Clicking a label will select its corresponding hidden radio button
+   We can select that radio buttons sibling label and style it. */
+input[type='radio'][name='buttonGroup']:checked + label { 
+    background-color: blue; 
 }
 #bill_total_container{
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+  width: 10rem;
+  height: 10rem;
+  background-color: coral;
 }
-#bill_total_container label{
-    width: 100%;
+#bill_total_container p{
+  width: 80%;
 }
-.selected{
-    background-color: blue;
+#bill_total_container input{
+  width: 100%;
+}
+span{
+  position: relative;
+  font-size: 14px;
+  color: darkblue;
+  float: right;
+}
+#people_container{
+  background-color: darkmagenta;
 }

@@ -18,32 +18,36 @@
     <header>
       <h1>SPLITTER</h1>
     </header>
-    <div id="tip_calculator_container">
-      <div id="data_container">
-            <div id="bill_total_container">
-              <label for="bill_total">BILL</label>
-              <input name="bill_total" type="text" maxlength="512" id="bill_total" class="searchField"/>
-            </div>
-            <div id="percentage_options">
-                <label for="percentage">PERCENTAGE</label>
-                <button>5%</button>
-                <button>10%</button>
-                <button>15%</button>
-                <button>25%</button>
-                <button>50%</button>
-                <input name="custom_percentage" type="text" id="custom_percentage" placeholder="Custom">
-            </div>
-
-            <label>Number of people</label>
-            <input name="number_of_people"  type="text" id="number_of_people" class="input_field">
+    <div id="main_container">
+        <div id="data container">
+            <form>
+                <div id="bill_total_container">
+                    <p>Bill total:</p>
+                    <input type="text" id="fname" size="20" name="fname"><br></div>
+                <div id="percentage_container">
+                    <p>Select Tip %</p>
+                    <input type="radio" name="buttonGroup" value="5" id="one"><label for="one">%5</label>
+                    <input type="radio" name="buttonGroup" value="10" id="two"><label for="two">10%</label>
+                    <input type="radio" name="buttonGroup" value="15" id="three"><label for="three">15%</label>
+                    <input type="radio" name="buttonGroup" value="25" id="four"><label for="four">25%</label>
+                    <input type="radio" name="buttonGroup" value="50" id="five"><label for="five">%50</label>
+                    <input type="text" placeholder="Custom" id="custom">
+                </div>
+                <div id="people_container">
+                    <p>Number of people</p>
+                    <input type="text" id="email" size="20" name="mail">
+                </div>
+                <input type="button" value="Enter" onclick="verifyValues()"> 
+            </form>
         </div>
-      <div id="result_container">
-        <div id="tip_amount">$0.00</div>
-        <div id="total_person">$0.00</div>
-        <button id="action_button">Enter</button>
-      </div>
+        <div id="result_container">
+            <div id="tip_amount_container">$0.00</div>
+            <div id="total_per_person_container">$0.00</div>
+        </div>
     </div>
     <script src="./script/script.js" type="text/javascript"></script>
+      
+    <!--<script src="./script/script.js" type="text/javascript"></script>
   Bill
 
   Select Tip %
@@ -67,6 +71,6 @@
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">Your Name Here</a>.
-  </div>
+  </div>-->
 </body>
 </html>
