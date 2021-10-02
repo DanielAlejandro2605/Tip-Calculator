@@ -29,6 +29,8 @@ header{
 #main_container{
   background-color: var(--container-background);
   display: flex;
+  box-shadow: 4.0px 8.0px 8.0px hsl(0deg 0% 0% / 0.38);
+  border-radius: 10px;
 }
 #data_container{
   padding: 5%;
@@ -56,6 +58,7 @@ p{
 }
 .input_container input{
   width: 85%;
+  margin-top: 1%;
   height: 1.5rem;
   border: 0;
   background-color: inherit;
