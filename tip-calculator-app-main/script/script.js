@@ -69,8 +69,8 @@ function getValues(){
     } else{
         percentage_value = getPercentageValue();
     }
-    let bill_total_value = document.getElementById('fname').value;
-    let number_of_people_value = document.getElementById('email').value;
+    let bill_total_value = document.getElementById('bill_total').value;
+    let number_of_people_value = document.getElementById('number_of_people').value;
     return [bill_total_value, percentage_value, number_of_people_value];   
 }
 
