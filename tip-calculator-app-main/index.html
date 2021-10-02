@@ -22,26 +22,38 @@
         <div id="data_container">
             <form>
                 <div id="bill_total_container">
-                    <p>Bill total:</p>
-                    <input placeholder="$0"type="text" id="fname" size="20" name="fname"><br></div>
+                    <p>Bill</p>
+                    <div class="input_container">
+                      <img src="./images/icon-dollar.svg">
+                      <input placeholder="0"type="text" id="fname" size="20" name="fname"><br>
+                    </div>
+                </div>
                 <div id="percentage_container">
                     <p>Select Tip %</p>
-                    <input type="radio" name="buttonGroup" value="5" id="one"><label for="one">%5</label>
-                    <input type="radio" name="buttonGroup" value="10" id="two"><label for="two">10%</label>
-                    <input type="radio" name="buttonGroup" value="15" id="three"><label for="three">15%</label>
-                    <input type="radio" name="buttonGroup" value="25" id="four"><label for="four">25%</label>
-                    <input type="radio" name="buttonGroup" value="50" id="five"><label for="five">%50</label>
-                    <input type="text" placeholder="Custom" id="custom">
+                    <div id="button_percentage_container">
+                      <input type="radio" name="buttonGroup" value="5" id="one"><label for="one">5%</label>
+                      <input type="radio" name="buttonGroup" value="10" id="two"><label for="two">10%</label>
+                      <input type="radio" name="buttonGroup" value="15" id="three"><label for="three">15%</label>
+                      <input type="radio" name="buttonGroup" value="25" id="four"><label for="four">25%</label>
+                      <input type="radio" name="buttonGroup" value="50" id="five"><label for="five">50%</label>
+                      <input type="text" placeholder="Custom" id="custom">
+                    </div>
                 </div>
                 <div id="people_container">
                     <p>Number of people</p>
-                    <input type="text" id="email" size="20" name="mail">
+                    <div class="input_container">
+                      <img src="./images/icon-person.svg">
+                      <input type="text" id="email" size="20" name="mail" placeholder="0">
+                    </div>
+                    
                 </div>
             </form>
         </div>
         <div id="result_container">
-            <div id="tip_amount_container">$0.00</div>
-            <div id="total_per_person_container">$0.00</div>
+            <p class="result_paragraph">Tip Amount<br><span>/person</span></p>
+            <div class="result_number" id="tip_amount_container">$0.00</div>
+            <p class="result_paragraph">Total <br><span>/person</span></p>
+            <div class="result_number" id="total_per_person_container">$0.00</div>
             <input id="action_button"type="button" value="Enter" onclick="mainFunction()"> 
         </div>
     </div>

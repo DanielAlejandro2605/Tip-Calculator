@@ -42,15 +42,15 @@ function verifyValues(bill_total, percentage, number_of_people){
     let flag = 0;
     // Verify if there are correct values
     if(Object.is(NaN, Number(bill_total))){
-        createMessage(container_bill_total, "It must be a number(non zero)");
+        createMessage(container_bill_total, "Must be a number(non zero)");
         flag = 1;
     }
     if(Object.is(NaN, Number(percentage))){
-        createMessage(container_percentage, "It must be a number(non zero)");
+        createMessage(container_percentage, "Must be a number(non zero)");
         flag = 1;
     }
     if(Object.is(NaN, Number(number_of_people))){
-        createMessage(container_people, "It must be a number(non zero)");
+        createMessage(container_people, "Must be a number(non zero)");
         flag = 1;
     }
 
